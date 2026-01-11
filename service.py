@@ -194,7 +194,7 @@ def sort_and_limit(enriched: List[ParsedEvent], limit: Optional[int]) -> List[Pa
     return enriched
 
 
-def get_events(url: str, lookback_days: int, horizon_days: int, limit: Optional[int], username: Optional[str], password: Optional[str], include_ended=False, ) -> List[ParsedEvent]:
+def get_events(url: str, lookback_days: int, horizon_days: int, limit: Optional[int], username: Optional[str], password: Optional[str], include_ended=False) -> List[ParsedEvent]:
     now_utc = datetime.datetime.now(pytz.utc)
     start = now_utc - datetime.timedelta(days=lookback_days)
     end = now_utc + datetime.timedelta(days=horizon_days)
