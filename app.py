@@ -1,8 +1,5 @@
-import traceback
-
 from flask import Flask, jsonify, request
 from service import get_events, clamp_int
-from urllib.parse import unquote_plus
 
 app = Flask(__name__)
 
@@ -41,7 +38,6 @@ def calendar_data():
             password=auth_pass
         )
     except Exception as e:
-        traceback.print_exception(e)
         return jsonify({"error": f"Failed to retrieve events: {str(e)}"}), 400
 
     return jsonify({"events": events_out})
